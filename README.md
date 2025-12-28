@@ -1,38 +1,31 @@
-# Food Hall Sales Performance Analysis
+# Cocktail Bar Sales Performance Analysis
 
 Business intelligence case study analyzing sales and inventory data from multiple bars operating within a single food hall to support managerial decision-making.
 
-## 📌 Scenario / Background
+## Scenario / Background
 
-A food hall operates multiple bars under a single management structure.
-Each bar sells a variety of products and manages its own inventory, generating
-large volumes of sales and stock data.
+This project analyzes sales performance of a single cocktail bar operating within a food hall environment.
 
-Despite having access to this data, managers lack a unified view of product
-performance across all bars. As a result, decisions related to pricing,
-product assortment, and inventory management are often based on intuition
-rather than data-driven insights.
+The bar offers a curated cocktail menu alongside selected beers, spirits, and soft drinks. 
+Despite having access to detailed sales and product cost data, 
+management lacks a structured analytical view of product performance and beverage cost efficiency.
 
-This project aims to consolidate and analyze sales and inventory data to provide
-actionable insights that support better managerial decision-making.
+The analysis covers Q1 2025 (January–March) and focuses on sales-driven insights supported by reference product cost data.
 
-## 🎯 Business Task (ASK Phase)
+## Business Task (ASK Phase)
 
-The goal of this analysis is to evaluate product-level sales and inventory
-performance across multiple bars within a single food hall in order to identify
-top-performing products, loss-generating items, and opportunities to improve
-profitability and operational efficiency.
+The goal of this analysis is to evaluate product-level sales performance and estimated beverage cost efficiency for a cocktail bar operating within a food hall.
 
-## 📊 Data Source & Disclaimer
+The analysis aims to identify:
+- top-performing products and categories,
+- products with potentially inefficient cost-to-price ratios,
+- opportunities to optimize pricing, menu composition, and overall profitability.
 
-The datasets used in this project are based on the author’s professional
-experience in food & beverage operations and are designed to closely resemble
-real-world sales, inventory, and beverage cost data.
+## Data Source & Disclaimer
 
-All data has been anonymized and modified for analytical purposes. Product
-names, prices, quantities, and cost structures are representative but do not
-reflect actual commercial agreements, supplier pricing, or proprietary business
-information.
+The datasets used in this project are based on the author’s professional experience in food & beverage operations and are designed to closely resemble real-world sales and product cost data from a bar environment.
 
-The datasets are intended solely for educational and portfolio demonstration
-purposes.
+All data has been anonymized and modified for analytical purposes. Product names, prices, quantities, and cost structures are representative and do not reflect actual commercial agreements, supplier pricing, or proprietary business information.
+
+The datasets are intended solely for educational and portfolio demonstration purposes.
+
