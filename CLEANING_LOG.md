@@ -103,6 +103,15 @@ sales performance analysis on its own.
 The data is recorded at purchase-event level and may contain multiple entries
 for the same product purchased on different dates or under different pricing conditions.
 
+### Column naming standardization
+
+Column names were standardized to `snake_case` format
+to ensure compatibility with SQL-based analysis (BigQuery)
+and improve schema consistency across datasets.
+
+This change affects column headers only and does not
+modify underlying data values.
+
 ### Step 1 – Standardization
 
 To ensure consistency across datasets and enable reliable joins, text-based
@@ -156,5 +165,26 @@ managed and costed at a batch or operational level rather than per unit.
 No cost imputation or estimation was applied at the cleaning stage.
 These items will be handled explicitly during later transformation or analysis phases,
 or excluded from unit-based beverage cost calculations where appropriate.
+
+### Step 5 Checking and potentially removing duplicates
+
+Invoice-level price discrepancy resolution
+
+During the data cleaning process, a price inconsistency was identified for the same
+product appearing multiple times on a single invoice
+(invoice_number + product_name + purchase_date) with different net_purchase_cost values.
+
+This issue was escalated to the bar management for clarification.
+After verification with the bar manager, a single correct purchase cost was confirmed.
+
+The dataset was updated to retain one record per invoice-product-date combination,
+using the confirmed purchase cost value.
+
+This approach reflects real-world operational workflows, where data inconsistencies
+are resolved through collaboration between analytics and business stakeholders,
+rather than automated assumptions.
+
+The original raw records were preserved unchanged for auditability.
+
 
 
