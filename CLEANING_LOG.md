@@ -166,7 +166,7 @@ No cost imputation or estimation was applied at the cleaning stage.
 These items will be handled explicitly during later transformation or analysis phases,
 or excluded from unit-based beverage cost calculations where appropriate.
 
-### Step 5 Checking and potentially removing duplicates
+### Step 5 – Duplicate validation and resolution
 
 Invoice-level price discrepancy resolution
 
@@ -185,6 +185,34 @@ are resolved through collaboration between analytics and business stakeholders,
 rather than automated assumptions.
 
 The original raw records were preserved unchanged for auditability.
+
+### Warehouse_Products_Tasty_Town – Data Cleaning Summary
+
+**Dataset:** Warehouse_Products_Tasty_Town_2025_RAW
+**Output:** Warehouse_Products_Tasty_Town_2025_CLEAN
+
+### Performed cleaning steps:
+
+- Standardized column naming convention to `snake_case` for SQL compatibility
+- Normalized text-based fields (`product_name`, `category`, `supplier`)
+  - trimmed whitespace
+  - unified uppercase formatting
+- Validated and standardized purchase dates to ISO format (`YYYY-MM-DD`)
+- Reviewed and validated numeric fields (`purchase_quantity`, `net_purchase_cost`)
+- Standardized measurement units and calculated `purchase_quantity_standardized`
+  - applied where linear conversion to base units (grams or milliliters) was possible
+- Identified non-convertible or batch-based units and explicitly set related fields to `NULL`
+- Replaced blank and non-applicable values with `NULL` to ensure SQL-safe handling
+- Performed invoice-level duplicate checks
+  - `invoice_number + product_name + purchase_date`
+- Resolved invoice-level price discrepancies through business validation
+- Preserved raw datasets unchanged for auditability
+
+### Result:
+
+The dataset is cleaned, standardized, and structurally consistent with the sales data.
+It is ready for SQL-based transformations, joins, and beverage cost analysis,
+with known data limitations explicitly documented and handled.
 
 
 
