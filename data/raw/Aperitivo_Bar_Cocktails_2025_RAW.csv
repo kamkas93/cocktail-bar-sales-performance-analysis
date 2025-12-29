@@ -1,0 +1,94 @@
+Cocktail name,Ingredient,Ingredient Category,Cocktail Category,Volume,Unit
+AMARETTO SOUR,AMARETTO DISARONNO,base_spirit,classic cocktail,40ml,
+AMARETTO SOUR,Bourbon_buff,base_spirit,classic cocktail,30ml,
+AMARETTO SOUR,lemon juice,juice,classic cocktail,20ml,
+AMARETTO SOUR,egg white,modifier,classic cocktail,15ml,
+AMARETTO SOUR,gomme syrup,syrup,classic cocktail,5ml,
+CHOCOLATE NEGRONI,HOUSE_GIN,base_spirit,negroni,30ml,
+CHOCOLATE NEGRONI,MAN_ROSSO,base_spirit,negroni,15ml,
+CHOCOLATE NEGRONI,RED_BITTER,base_spirit,negroni,30ml,
+CHOCOLATE NEGRONI,Cacao_white,base_spirit,negroni,15ml,
+CHOCOLATE NEGRONI,chocolate,food_component,negroni,1szt,
+CHOCOLATE NEGRONI,"Ice cube 5,5x4,5",ice,negroni,1szt,
+CLASSIC NEGRONI,HOUSE_GIN,base_spirit,negroni,30ml,
+CLASSIC NEGRONI,MAN_ROSSO,base_spirit,negroni,30ml,
+CLASSIC NEGRONI,RED_BITTER,base_spirit,negroni,30ml,
+CLASSIC NEGRONI,orange peel,garnish,negroni,1szt,
+CLASSIC NEGRONI,"Ice cube 5,5x4,5",ice,negroni,1szt,
+CLOVER CLUB,HOUSE_GIN,base_spirit,classic cocktail,45ml,
+CLOVER CLUB,MAN_SECCO,base_spirit,classic cocktail,15ml,
+CLOVER CLUB,raspberry,fruit,classic cocktail,5,gram
+CLOVER CLUB,lemon juice,juice,classic cocktail,15ml,
+CLOVER CLUB,egg white,modifier,classic cocktail,15ml,
+CLOVER CLUB,Raspberry syrup,syrup,classic cocktail,15ml,
+EL PRESIDENTE,PLANT_RUM_WHITE,base_spirit,classic cocktail,30,
+EL PRESIDENTE,MAN_SECCO,base_spirit,classic cocktail,30,
+EL PRESIDENTE,Triple_sec_dry,base_spirit,classic cocktail,5,
+EL PRESIDENTE,ANGOSTICO,bitters,classic cocktail,2,ml
+EL PRESIDENTE,grenadine,syrup,classic cocktail,5,
+GIN BASIL SMASH,HOUSE_GIN,base_spirit,classic cocktail,60ml,
+GIN BASIL SMASH,basil leaf,herb,classic cocktail,1,
+GIN BASIL SMASH,lemon juice,juice,classic cocktail,20ml,
+GIN BASIL SMASH,Basil syrup,syrup,classic cocktail,20,ml
+JAMAICAN NEGRONI,RED_BITTER,base_spirit,signature,30,ml
+JAMAICAN NEGRONI,Jamaican_overproof,base_spirit,signature,10,ml
+JAMAICAN NEGRONI,Maraschino,base_spirit,signature,10,ml
+JAMAICAN NEGRONI,lime ,fruit,signature,1,pcs
+JAMAICAN NEGRONI,lime juice,juice,signature,10,ml
+JAMAICAN NEGRONI,banana syrup,syrup,signature,10,ml
+JUNGLE BIRD,PLANTERAY ORIGINAL DARK,base_spirit,classic cocktail,45,
+JUNGLE BIRD,RED_BITTER,base_spirit,classic cocktail,"22,5",
+JUNGLE BIRD,pineapple juice,juice,classic cocktail,45,
+JUNGLE BIRD,lime juice,juice,classic cocktail,15,
+JUNGLE BIRD,demerara syrup,syrup,classic cocktail,15,
+KINGSTONE NEGRONI,JAMAICA_RUM,base_spirit,negroni,30ml,
+KINGSTONE NEGRONI,MAN_ROSSO,base_spirit,negroni,30ml,
+KINGSTONE NEGRONI,RED_BITTER,base_spirit,negroni,30ml,
+KINGSTONE NEGRONI,banana leaf,herb,negroni,1szt,
+KINGSTONE NEGRONI,"Ice cube 5,5x4,5",ice,negroni,1szt,
+MARADONA,FERNET_AMARO,base_spirit,signature,30,ml
+MARADONA,MIRTO,base_spirit,signature,20,ml
+MARADONA,lime juice,juice,signature,20,ml
+MARADONA,COLA,mixer,signature,60,ml
+MARADONA,cola foam,modifier,signature,1,pcs
+MEZCAL AMARONI,MEZCAL O.D.T 50%,base_spirit,negroni,30ml,
+MEZCAL AMARONI,MONTE_AMARO,base_spirit,negroni,30ml,
+MEZCAL AMARONI,RED_BITTER,base_spirit,negroni,30ml,
+MEZCAL AMARONI,lavender,herb,negroni,1szt,
+MEZCAL AMARONI,"Ice cube 5,5x4,5",ice,negroni,1szt,
+NEGRONI BIANCO,HOUSE_GIN,base_spirit,negroni,40ml,
+NEGRONI BIANCO,Bergamot_liq,base_spirit,negroni,20ml,
+NEGRONI BIANCO,MAN_BIANCO,base_spirit,negroni,30ml,
+NEGRONI BIANCO,lemon zest,garnish,negroni,1szt,
+NEGRONI BIANCO,"Ice cube 5,5x4,5",ice,negroni,1szt,
+PAPER PLANE,Bourbon_buff,base_spirit,classic cocktail,30ml,
+PAPER PLANE,NONINNO_AMARO,base_spirit,classic cocktail,30ml,
+PAPER PLANE,APEROTIVO,base_spirit,classic cocktail,30ml,
+PAPER PLANE,lemon juice,juice,classic cocktail,30ml,
+PISTACCHIO SOUR,PISTACCHIO_LIQ,base_spirit,signature,40,ml
+PISTACCHIO SOUR,pistacchio garnish,garnish,signature,3,gram
+PISTACCHIO SOUR,"Ice cube 5,5x4,5",ice,signature,1,pcs
+PISTACCHIO SOUR,lemon juice,juice,signature,30,ml
+PISTACCHIO SOUR,egg white,modifier,signature,20,ml
+PISTACCHIO SOUR,sugar syrup,syrup,signature,15,ml
+PORNSTAR MARTINI,ALTA_PREMIUM,base_spirit,classic cocktail,40ml,
+PORNSTAR MARTINI,LIKIER PASSION FRUIT,base_spirit,classic cocktail,20ml,
+PORNSTAR MARTINI,lime juice,juice,classic cocktail,20ml,
+PORNSTAR MARTINI,prosecco foam,modifier,classic cocktail,1szt,
+PORNSTAR MARTINI,passion fruit cordial,syrup,classic cocktail,40ml,
+PORNSTAR MARTINI,vanilla syrup,syrup,classic cocktail,10ml,
+ROSA SPRITZ,HOUSE_GIN,base_spirit,signature,20,ml
+ROSA SPRITZ,PROSECCO,base_spirit,signature,60,ml
+ROSA SPRITZ,mini rose,garnish,signature,2,pcs
+ROSA SPRITZ,mint,herb,signature,1,pcs
+ROSA SPRITZ,soda,mixer,signature,20,ml
+ROSA SPRITZ,rose cordial,syrup,signature,60,ml
+SGROPPINO,MAL_ORIG,base_spirit,signature,15,ml
+SGROPPINO,LIMONCELLO,base_spirit,signature,30,ml
+SGROPPINO,Prosecco,base_spirit,signature,90,ml
+SGROPPINO,citrus ice cream,food_component,signature,30,gram
+SGROPPINO,elderflower syrup,syrup,signature,10,ml
+SHAKERONI,HOUSE_GIN,base_spirit,signature,30,ml
+SHAKERONI,APERITIVO_SPID,base_spirit,signature,30,ml
+SHAKERONI,pineapple foam,modifier,signature,1,pcs
+SHAKERONI,pineapple cordial,syrup,signature,40,ml
