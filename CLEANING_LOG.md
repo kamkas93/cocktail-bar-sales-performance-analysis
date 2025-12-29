@@ -214,5 +214,32 @@ The dataset is cleaned, standardized, and structurally consistent with the sales
 It is ready for SQL-based transformations, joins, and beverage cost analysis,
 with known data limitations explicitly documented and handled.
 
+## Dataset: Aperitivo_Bar_Cocktails_2025_RAW
 
+### Initial data review
+
+The raw dataset contains cocktail recipes stored in a long format.
+Each row represents a single ingredient used in a specific cocktail.
+
+The dataset includes cocktail names, ingredient names, ingredient categories,
+cocktail categories, and ingredient volumes with units.
+
+The data is intended to support recipe-level analysis and ingredient-based
+cost calculations after joining with warehouse purchase data.
+
+### Step 1 – Standardization
+
+To ensure consistency across datasets and enable reliable joins, text-based
+columns were standardized.
+
+Applied transformations:
+- Cocktail names were trimmed and standardized to uppercase.
+- Ingredient names were trimmed and standardized to uppercase.
+- Ingredient categories and cocktail categories were standardized
+  (trimmed whitespace, unified casing).
+- Column naming conventions were aligned with snake_case format
+  for SQL compatibility.
+
+Standardization reduces the risk of join mismatches and ensures consistency
+with sales and warehouse datasets.
 
