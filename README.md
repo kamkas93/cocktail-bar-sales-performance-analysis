@@ -12,6 +12,11 @@ management lacks a structured analytical view of product performance and beverag
 
 The analysis covers Q1 2025 (January–March) and focuses on sales-driven insights supported by reference product cost data.
 
+## Data structure
+
+- `data/raw/` – original raw datasets (unchanged, for auditability)
+- `data/clean/` – cleaned and standardized datasets used for SQL analysis
+
 ## Business Task (ASK Phase)
 
 The goal of this analysis is to evaluate product-level sales performance and estimated beverage cost efficiency for a cocktail bar operating within a food hall.
