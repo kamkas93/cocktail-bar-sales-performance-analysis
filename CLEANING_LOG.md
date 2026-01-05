@@ -243,3 +243,80 @@ Applied transformations:
 Standardization reduces the risk of join mismatches and ensures consistency
 with sales and warehouse datasets.
 
+### Step 2 – Volume parsing and unit standardization
+
+- Parsed `volume` field into numeric (`volume_value`) and unit (`volume_unit`) components
+- Standardized unit naming to a limited set of base units (`ml`, `g`, `pcs`)
+- Identified non-linear and count-based units that cannot be converted to weight or volume
+- No unit conversion or cost calculation was performed at this stage
+
+## Step 3 - Duplicate validation
+
+A logical duplicate check was performed using a composite key
+(cocktail_name + ingredient_name + volume_value + volume_unit).
+No duplicate recipe entries were identified.
+
+### Aperitivo_Bar_Cocktails – Data Cleaning Summary
+
+**Dataset:** Aperitivo_Bar_Cocktails_2025_RAW  
+**Output:** Aperitivo_Bar_Cocktails_2025_CLEAN  
+
+### Performed cleaning steps:
+
+- Standardized column naming convention to `snake_case` for SQL compatibility
+- Normalized text-based fields (`cocktail_name`, `ingredient`, `ingredient_category`, `cocktail_category`)
+  - trimmed whitespace
+  - unified uppercase formatting
+- Validated long-format structure
+  - each row represents a single ingredient used in a specific cocktail
+- Separated ingredient volume into numeric value and unit
+  - extracted numeric volume
+  - extracted unit into a dedicated column
+- Standardized unit notation where applicable (`ml`, `g`, `pcs`)
+- Reviewed and validated numeric volume values
+- Checked and confirmed absence of logical duplicates
+  - `cocktail_name + ingredient + volume + unit`
+- Preserved non-linear or count-based units (`pcs`) without forced conversion
+- Preserved raw dataset unchanged for auditability
+
+### Result:
+
+The dataset is cleaned, standardized, and stored in a consistent long-format structure.
+It is ready for SQL-based transformations, joins with warehouse purchase data,
+and ingredient-level beverage cost calculations,
+with known limitations related to non-linear units explicitly documented.
+
+## Dataset: Aperitivo_Bar_Product_List_2025_RAW
+
+The dataset contains a master list of products available in the bar, including
+product names, product categories, suppliers, package capacities, and net prices.
+
+Each row represents a single purchasable product SKU.
+The data is intended to support price normalization and cost-per-unit calculations
+after cleaning and standardization.
+
+## Aperitivo_Bar_Product_List – Data Cleaning Summary
+
+**Dataset:** Aperitivo_Bar_Product_List_2025_RAW  
+**Output:** Aperitivo_Bar_Product_List_2025_CLEAN  
+
+### Performed cleaning steps:
+- Standardized column naming convention to `snake_case`
+- Normalized text-based fields (`name`, `product_category`, `supplier`)
+  - trimmed whitespace
+  - unified uppercase formatting
+- Parsed and standardized product capacity
+  - separated numeric value (`capacity_value`) and unit (`capacity_unit`)
+  - normalized capacity units to milliliters where applicable
+- Cleaned net price field
+  - removed currency suffix
+  - normalized decimal separator
+  - converted values to numeric format (`net_price`)
+- Replaced blank and missing values with `NULL` for SQL-safe handling
+- Performed basic duplicate sanity checks
+- Preserved raw dataset unchanged for auditability
+
+### Result:
+The dataset is cleaned, normalized, and ready for SQL-based joins with
+sales and recipe data. It supports accurate unit-level and product-level
+cost calculations in downstream analysis.
