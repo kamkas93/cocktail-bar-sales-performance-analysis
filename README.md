@@ -33,6 +33,18 @@ All data has been anonymized and modified for analytical purposes. Product names
 
 The datasets are intended solely for educational and portfolio demonstration purposes.
 
+### Assumptions & Simplifications
+
+For the purpose of this analysis, all prices and costs are treated as net values.
+Value Added Tax (VAT) and other indirect taxes were intentionally excluded
+to keep the analytical model focused on operational cost efficiency and
+pricing logic.
+
+Including taxes would require additional assumptions regarding tax rates,
+product categories, and accounting treatment at multiple stages
+(warehouse purchases, menu pricing, and sales reporting),
+which is outside the scope of this business intelligence case study.
+
 ## Business Task (ASK Phase)
 
 The goal of this analysis is to evaluate product-level sales performance and estimated beverage cost efficiency for a cocktail bar operating within a food hall.
@@ -72,6 +84,8 @@ Beverage cost was calculated using a bottom-up approach:
 
 #### Ingredient usage per cocktail
 Recipe data was used to determine the exact quantity of each ingredient used in a single cocktail.
+
+To prevent cost inflation caused by multiple purchase prices per ingredient, average unit costs were calculated and used as the single source of truth for recipe-level cost attribution.
 
 #### Ingredient unit cost estimation
 Warehouse purchase data was used to calculate unit costs (per gram or milliliter) for each ingredient.
