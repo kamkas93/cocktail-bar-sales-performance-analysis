@@ -43,10 +43,9 @@ The analysis aims to identify:
 - opportunities to optimize pricing, menu composition, and overall profitability.
 
 ## Data Cleaning & Preparation (PREPARE Phase)
+The raw datasets required multiple cleaning and standardization steps before analysis. The cleaning process focused on improving data consistency, ensuring correct data types, and preparing the data for aggregation and joins.
 
-The raw datasets required multiple cleaning and standardization steps
-before analysis. The cleaning process focused on improving data consistency,
-ensuring correct data types, and preparing the data for aggregation and joins.
+A detailed, step-by-step documentation of the entire data cleaning process — including validation checks, transformation logic, and business-driven data decisions — is provided in the CLEANING_LOG.md file to ensure transparency, reproducibility, and auditability of the analysis.
 
 ## Data Modeling & Integration (ANALYZE Phase)
 
@@ -67,22 +66,22 @@ Data integration was performed using SQL joins and common table expressions (CTE
 
 The final analytical layer enables ingredient-level cost attribution and cocktail-level profitability analysis.
 
-## Beverage Cost Calculation
+### Beverage Cost Calculation
 
 Beverage cost was calculated using a bottom-up approach:
 
-### Ingredient usage per cocktail
+#### Ingredient usage per cocktail
 Recipe data was used to determine the exact quantity of each ingredient used in a single cocktail.
 
-### Ingredient unit cost estimation
+#### Ingredient unit cost estimation
 Warehouse purchase data was used to calculate unit costs (per gram or milliliter) for each ingredient.
 
-### Cocktail-level cost aggregation
+#### Cocktail-level cost aggregation
 Ingredient-level costs were aggregated to determine the total beverage cost per cocktail.
 
 Non-linear, batch-based, or operational ingredients (e.g. foams, garnishes, ice) were excluded or handled separately, in line with real-world bar costing practices.
 
-## Pricing & Margin Analysis
+### Pricing & Margin Analysis
 
 Cocktail selling prices were joined with calculated beverage costs to derive:
 
