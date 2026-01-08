@@ -67,22 +67,22 @@ Data integration was performed using SQL joins and common table expressions (CTE
 
 The final analytical layer enables ingredient-level cost attribution and cocktail-level profitability analysis.
 
-# Beverage Cost Calculation
+## Beverage Cost Calculation
 
 Beverage cost was calculated using a bottom-up approach:
 
-# Ingredient usage per cocktail
+### Ingredient usage per cocktail
 Recipe data was used to determine the exact quantity of each ingredient used in a single cocktail.
 
-# Ingredient unit cost estimation
+### Ingredient unit cost estimation
 Warehouse purchase data was used to calculate unit costs (per gram or milliliter) for each ingredient.
 
-# Cocktail-level cost aggregation
+### Cocktail-level cost aggregation
 Ingredient-level costs were aggregated to determine the total beverage cost per cocktail.
 
 Non-linear, batch-based, or operational ingredients (e.g. foams, garnishes, ice) were excluded or handled separately, in line with real-world bar costing practices.
 
-# Pricing & Margin Analysis
+## Pricing & Margin Analysis
 
 Cocktail selling prices were joined with calculated beverage costs to derive:
 
@@ -92,7 +92,7 @@ Cocktail selling prices were joined with calculated beverage costs to derive:
 
 This enabled direct comparison of cost efficiency across cocktails and categories, independent of sales volume.
 
-# Key Insights & Outcomes
+## Key Insights & Outcomes
 
 - The analysis supports the identification of:
 
@@ -112,7 +112,7 @@ This enabled direct comparison of cost efficiency across cocktails and categorie
 
 The results reflect common operational challenges faced by cocktail bars and demonstrate how data-driven analysis can support managerial decision-making.
 
-# Tools & Technologies
+## Tools & Technologies
 
   Google Sheets – data cleaning and validation
 
