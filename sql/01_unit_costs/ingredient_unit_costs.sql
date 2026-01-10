@@ -20,7 +20,6 @@
 -- - Only products with known standardized quantities are included
 -- - Costs are treated as net values (VAT excluded)
 
-
 SELECT
   product_name,
   category,
