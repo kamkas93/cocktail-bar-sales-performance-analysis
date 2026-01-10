@@ -65,6 +65,25 @@ After completing the data cleaning and preparation phase, all datasets were load
 
 The SQL analysis was structured into multiple logical layers using views, allowing for clear separation of concerns, reproducibility, and easy downstream consumption in BI tools.
 
+## SQL Analytical Model
+
+The analytical logic is organized into layered SQL views, reflecting a
+bottom-up cost and profitability model.
+
+### Structure
+
+sql/
+├── 01_unit_costs        # Unit cost normalization (warehouse & product level)
+├── 02_costing           # Cocktail ingredient and beverage cost calculation
+├── 03_profitability     # Pricing and margin analysis
+└── 04_performance       # Sales × profitability performance metrics
+
+Each SQL file contains detailed comments explaining:
+- business purpose
+- input tables
+- transformation logic
+- key assumptions
+
 ### Ingredient Unit Cost Modeling
 
 Warehouse purchase data was used to calculate standardized unit costs (per gram or milliliter) for all linear ingredients.
