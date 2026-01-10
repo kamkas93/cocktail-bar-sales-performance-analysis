@@ -1,3 +1,24 @@
+-- Purpose:
+-- Calculates gross margin metrics per cocktail.
+
+-- Business context:
+-- Enables evaluation of pricing efficiency and
+-- identification of cocktails with poor cost-to-price ratios.
+
+-- Input tables:
+-- - cocktail_beverage_costs
+-- - price
+
+-- Output:
+-- - cocktail_profitability (view)
+
+-- Key logic:
+-- - Gross margin = selling price - beverage cost
+-- - Percentage metrics normalize costs across price levels
+
+-- Notes / assumptions:
+-- - Prices are net (VAT excluded)
+
 SELECT
   c.cocktail_name,
   p.cocktail_price_net AS selling_price,
