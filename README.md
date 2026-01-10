@@ -61,49 +61,70 @@ A detailed, step-by-step documentation of the entire data cleaning process — i
 
 ## Data Modeling & Integration (ANALYZE Phase)
 
-After completing the data cleaning and preparation phase, all datasets were loaded into BigQuery and integrated using SQL.
-The analytical data model was built by combining:
+After completing the data cleaning and preparation phase, all datasets were loaded into Google BigQuery and integrated using SQL to build a transparent analytical data model.
 
-- daily cocktail sales data,
+The SQL analysis was structured into multiple logical layers using views, allowing for clear separation of concerns, reproducibility, and easy downstream consumption in BI tools.
 
-- recipe-level cocktail compositions,
+### Ingredient Unit Cost Modeling
 
-- standardized warehouse purchase costs,
+Warehouse purchase data was used to calculate standardized unit costs (per gram or milliliter) for all linear ingredients.
 
-- product master data,
+To prevent cost distortion caused by multiple purchase prices for the same product, average unit costs per ingredient were calculated and used as the single source of truth for recipe-level cost attribution.
 
-- cocktail-level selling prices.
+This ensured consistent and realistic cost modeling across all cocktails.
 
-Data integration was performed using SQL joins and common table expressions (CTEs), ensuring transparent, reproducible logic and full traceability of calculations.
+### Recipe-Level Ingredient Cost Attribution
 
-The final analytical layer enables ingredient-level cost attribution and cocktail-level profitability analysis.
+Cocktail recipe data was joined with standardized ingredient unit costs to calculate ingredient-level costs per cocktail.
 
-### Beverage Cost Calculation
+Only linear, measurable ingredients (ml, g) were included in the cost calculation.
+Non-linear or operational components (e.g. ice, garnishes, foams) were excluded in line with real-world bar costing practices.
 
-Beverage cost was calculated using a bottom-up approach:
+This step enabled full traceability from warehouse purchase prices down to individual cocktail ingredients.
 
-#### Ingredient usage per cocktail
-Recipe data was used to determine the exact quantity of each ingredient used in a single cocktail.
+### Cocktail-Level Beverage Cost Calculation
 
-To prevent cost inflation caused by multiple purchase prices per ingredient, average unit costs were calculated and used as the single source of truth for recipe-level cost attribution.
+Ingredient-level costs were aggregated to determine the total beverage cost per cocktail using a bottom-up approach.
 
-#### Ingredient unit cost estimation
-Warehouse purchase data was used to calculate unit costs (per gram or milliliter) for each ingredient.
+This resulted in a dedicated analytical view representing the true production cost of each cocktail.
 
-#### Cocktail-level cost aggregation
-Ingredient-level costs were aggregated to determine the total beverage cost per cocktail.
+### Pricing & Profitability Analysis
 
-Non-linear, batch-based, or operational ingredients (e.g. foams, garnishes, ice) were excluded or handled separately, in line with real-world bar costing practices.
+Cocktail selling prices (net values) were joined with calculated beverage costs to derive:
 
-### Pricing & Margin Analysis
+beverage cost per cocktail,
 
-Cocktail selling prices were joined with calculated beverage costs to derive:
+beverage cost percentage,
 
-- beverage cost per cocktail,
-- beverage cost percentage,
-- estimated gross margin.
+gross margin (PLN),
 
-This enabled direct comparison of cost efficiency across cocktails and categories, independent of sales volume.
+gross margin percentage.
+
+All monetary values were treated as net values.
+Value Added Tax (VAT) and other indirect taxes were intentionally excluded to keep the analytical model focused on operational cost efficiency and pricing logic.
+
+### Sales Performance Integration
+
+Finally, cocktail-level profitability metrics were integrated with sales transaction data to evaluate:
+
+units sold,
+
+total revenue,
+
+total gross profit per cocktail.
+
+This enabled identification of:
+
+top-performing cocktails by profit contribution,
+
+high-margin but low-volume items,
+
+high-volume but low-margin products,
+
+pricing and menu optimization opportunities.
+
+The resulting analytical layer serves as the foundation for further visualization and reporting in Tableau.
+
 
 ## Key Insights & Outcomes
 
