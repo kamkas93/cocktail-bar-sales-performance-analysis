@@ -1,3 +1,25 @@
+-- Purpose:
+-- Combines sales volume with profitability metrics
+-- to evaluate overall product performance.
+
+-- Business context:
+-- Identifies top-performing cocktails in terms of
+-- revenue and gross profit contribution.
+
+-- Input tables:
+-- - cocktail_profitability
+-- - sales
+
+-- Output:
+-- - cocktail_performance (view)
+
+-- Key logic:
+-- - Revenue = units sold * selling price
+-- - Gross profit = units sold * gross margin
+
+-- Notes / assumptions:
+-- - LEFT JOIN ensures cocktails with no sales are retained
+
 SELECT
   p.cocktail_name,
 
