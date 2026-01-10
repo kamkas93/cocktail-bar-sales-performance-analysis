@@ -20,8 +20,13 @@ The analysis covers Q1 2025 (January–March) and focuses on sales-driven insigh
 ## Project Structure
 
 data/
-├── raw/        # Original source datasets (unchanged)
-├── clean/      # Cleaned and standardized datasets used for analysis
+  raw/        # Original source datasets (unchanged)
+  clean/      # Cleaned and standardized datasets used for analysis
+sql/
+  01_unit_costs        # Unit cost normalization (warehouse & product level)
+  02_costing           # Cocktail ingredient and beverage cost calculation
+  03_profitability     # Pricing and margin analysis
+  04_performance       # Sales × profitability performance metrics
 CLEANING_LOG.md # Detailed documentation of all cleaning steps
 README.md       # Project overview and analytical narrative
 
