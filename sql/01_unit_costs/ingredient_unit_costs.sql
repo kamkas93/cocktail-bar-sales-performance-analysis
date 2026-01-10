@@ -1,3 +1,26 @@
+-- Purpose:
+-- Calculates unit cost (PLN per standardized unit) for non-alcohol ingredients
+-- based on warehouse purchase data.
+
+-- Business context:
+-- Provides base cost metrics required for bottom-up beverage cost calculation
+-- at the cocktail recipe level.
+
+-- Input tables:
+-- - aperitivo_bar.warehouse_products
+
+-- Output:
+-- - ingredient_unit_costs (view)
+
+-- Key logic:
+-- - Uses standardized purchase quantity to normalize costs
+-- - SAFE_DIVIDE prevents division by zero
+
+-- Notes / assumptions:
+-- - Only products with known standardized quantities are included
+-- - Costs are treated as net values (VAT excluded)
+
+
 SELECT
   product_name,
   category,
