@@ -1,0 +1,78 @@
+product name,category,supplier,purchase date,purchase quantity,unit,gross purchase cost,tax,invoice_number
+tomato juice,juice,Cash&Makro,2025-01-25,1,liter,5.84,23%,CM-20250125
+apple_green,fruit,Cash&Makro,2025-02-04,1000,gram,7.99,5%,CM-20250204
+apple_red,fruit,Cash&Makro,2025-02-04,1000,gram,5.34,5%,CM-20250204
+peach,fruit,Cash&Makro,2025-02-04,1000,gram,12.23,5%,CM-20250204
+pineapple juice,juice,Cash&Makro,2025-02-07,1,liter,7,23%,CM-20250207
+pineapple juice,juice,Cash&Makro,2025-02-07,1,l,5.99,23%,CM-20250207
+peanut butter,food_component,Cash&Makro,2025-02-09,1000,g,43.8,5%,CM-20250209
+sesame seeds,food_component,Cash&Makro,2025-02-09,500,g,28.7,5%,CM-20250209
+mini rose,herb,Cash&Makro,2025-02-15,1,kg,83.34,5%,CM-20250215
+pistacchio,food_component,Cash&Makro,2025-03-10,100,gram,23.2,5%,CM-20250310
+cranberry juice,juice,Cash&Makro,2025-03-14,1,liter,6.9,23%,CM-20250314
+chocolate,food_component,Cash&Makro,2025-03-18,500,gram,4.98,5%,CM-20250318
+citrus ice cream,food_component,Cash&Makro,2025-03-18,1000,gram,23,5%,CM-20250318
+dark chocolate,food_component,Cash&Makro,2025-03-18,60,gram,6.2,5%,CM-20250318
+white chocolate,food_component,Cash&Makro,2025-03-18,60,gram,5.8,5%,CM-20250318
+cocoa powder,food_component,Cash&Makro,2025-03-18,500,gram,22,5%,CM-20250318
+coffee beans,food_component,Cash&Makro,2025-03-18,1000,gram,57.6,5%,CM-20250318
+ground coffee,food_component,Cash&Makro,2025-03-18,1000,gram,36.5,5%,CM-20250318
+pomegranate juice,juice,Cash&Makro,2025-04-01,1,liter,9.9,23%,CM-20250401
+coconut flakes,food_component,Cash&Makro,2025-04-03,500,g,17.5,5%,CM-20250403
+almond flakes,food_component,Cash&Makro,2025-04-03,500,g,36,5%,CM-20250403
+hazelnut paste,food_component,Cash&Makro,2025-04-03,1000,g,29,5%,CM-20250403
+plum,fruit,Cash&Makro,2025-04-07,1000,gram,14.23,5%,CM-20250407
+elderflower syrup,syrup,Cash&Makro,2025-04-21,1,liter,38,23%,CM-20250421
+gomme syrup,syrup,Cash&Makro,2025-04-21,500,ml,12.7,23%,CM-20250421
+grenadine,syrup,Cash&Makro,2025-04-21,1,liter,24.8,23%,CM-20250421
+maple syrup,syrup,Cash&Makro,2025-04-21,1,l,18,23%,CM-20250421
+agave syrup,syrup,Cash&Makro,2025-04-21,1,l,24.5,23%,CM-20250421
+almond syrup (orgeat),syrup,Cash&Makro,2025-04-21,1,liter,26,23%,CM-20250421
+falernum,syrup,Cash&Makro,2025-04-21,1,liter,28.9,23%,CM-20250421
+apple juice,juice,Cash&Makro,2025-05-04,1,l,4.9,23%,CM-20250504
+passion_fruit,fruit,Cash&Makro,2025-05-13,500,gram,37,5%,CM-20250513
+kiwi,fruit,Cash&Makro,2025-05-13,1000,gram,12.64,5%,CM-20250513
+pomegranate,fruit,Cash&Makro,2025-05-13,1000,gram,13.54,5%,CM-20250513
+pear,fruit,Cash&Makro,2025-05-13,1000,gram,15.54,5%,CM-20250513
+lemon,fruit,Cash&Makro,2025-05-25,30,kg,133.6,5%,CM-20250525
+lime,fruit,Cash&Makro,2025-05-25,20,kg,94.33,5%,CM-20250525
+raspberry,fruit,Cash&Makro,2025-05-25,1,kg,18,5%,CM-20250525
+orange,fruit,Cash&Makro,2025-05-25,30,kg,149.49,5%,CM-20250525
+blueberry,fruit,Cash&Makro,2025-05-25,500,gram,20,5%,CM-20250525
+strawberry,fruit,Cash&Makro,2025-05-25,1000,gram,28.8,5%,CM-20250525
+grapefruit,fruit,Cash&Makro,2025-05-25,5,kg,27.7,5%,CM-20250525
+pineapple,fruit,Cash&Makro,2025-05-25,1000,gram,16,5%,CM-20250525
+mango,fruit,Cash&Makro,2025-05-25,1000,gram,14,5%,CM-20250525
+lemon juice,juice,FreshPrep,2025-01-10,2,liter,19,23%,FP-20250125
+lime juice,juice,FreshPrep,2025-01-10,2,liter,26,23%,FP-20250204
+orange juice,juice,FreshPrep,2025-02-07,1,liter,6.98,23%,FP-20250204
+grapefruit juice,juice,FreshPrep,2025-02-07,1,l,7.8,23%,FP-20250204
+cola foam,modifier,FreshPrep,2025-02-22,,,,23%,
+egg white,modifier,FreshPrep,2025-03-30,,,,23%,
+prosecco foam,modifier,FreshPrep,2025-03-30,,,,23%,
+pineapple foam,modifier,FreshPrep,2025-03-30,,,,23%,
+banana syrup,syrup,FreshPrep,2025-02-17,500,ml,38.9,23%,FP-20250215
+Basil syrup,syrup,FreshPrep,2025-03-07,1000,ml,44.5,23%,FP-20250310
+demerara syrup,syrup,FreshPrep,2025-05-21,500,ml,18.2,23%,FP-20250314
+passion fruit cordial,syrup,FreshPrep,2025-03-12,2,liter,58.2,23%,FP-20250318
+pineapple cordial,syrup,FreshPrep,2025-03-12,2,liter,48.2,23%,FP-20250318
+Raspberry syrup,syrup,FreshPrep,2025-03-12,2,liter,63.2,23%,FP-20250318
+rose cordial,syrup,FreshPrep,2025-03-12,1,liter,42.7,23%,FP-20250318
+sugar syrup,syrup,FreshPrep,2025-03-12,5,liter,33.3,23%,FP-20250318
+vanilla syrup,syrup,FreshPrep,2025-03-22,1,l,12.2,23%,FP-20250318
+honey syrup,syrup,FreshPrep,2025-03-22,1,l,16.2,23%,FP-20250318
+ginger syrup,syrup,FreshPrep,2025-05-11,1,l,21.2,23%,FP-20250401
+cinnamon syrup,syrup,FreshPrep,2025-01-07,1,l,21.2,23%,FP-20250403
+cardamom syrup,syrup,FreshPrep,2025-03-09,1,l,23.78,23%,FP-20250403
+chai syrup,syrup,FreshPrep,2025-04-26,1,liter,19.9,23%,FP-20250403
+lavender syrup,syrup,FreshPrep,2025-05-31,1,liter,19.9,23%,FP-20250407
+hibiscus syrup,syrup,FreshPrep,2025-03-18,1,liter,21,23%,FP-20250421
+banana leaf,herb,GreenSupplier,2025-01-27,250,gram,15,5%,GS234220250125
+basil,herb,GreenSupplier,2025-02-25,600,gram,20,5%,GS234220250204
+lavender,herb,GreenSupplier,2025-02-25,200,gram,16,5%,GS234220250204
+mint,herb,GreenSupplier,2025-02-25,1,kg,4.5,5%,GS234220250204
+"Ice cube 5,5x4,5",ice,JamaicaICE,2025-04-19,20,kg,200,23%,JICE19425K
+vanilla pods,food_component,Local Supplier,2025-01-11,50,pcs,89.9,5%,20250111-3231
+tonka beans,food_component,Specialty Shop,2025-02-27,100,gram,23.5,5%,FC-20250125-01
+matcha powder,food_component,Specialty Shop,2025-04-27,200,gram,38.3,5%,FC-20250204-01
+activated charcoal,food_component,Specialty Shop,2025-04-27,100,gram,19.9,5%,FC-20250204-02
