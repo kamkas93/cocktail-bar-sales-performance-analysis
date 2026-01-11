@@ -6,28 +6,31 @@
 -- and identification of the most expensive components.
 
 -- Input tables:
--- - aperitivo_bar.aperitivo_cocktails
--- - ingredient_unit_costs_avg
+-- - clean.recipes
+-- - clean.ingredient_cost_ref
 
 -- Output:
--- - cocktail_ingredient_costs_detailed (view)
+-- - View: clean.cocktail_ingredient_costs_detailed
 
 -- Key logic:
--- - Ingredient cost = recipe volume * average unit cost
+-- - Ingredient cost = recipe volume * reference unit cost
 -- - Only linear units (ml, g) are included
 
 -- Notes / assumptions:
 -- - Garnishes and non-measurable components are excluded
 
 SELECT
-  c.cocktail_name,
-  c.ingredient,
-  c.volume AS ingredient_quantity,
-  c.unit,
-  u.avg_unit_cost AS unit_cost,
-  c.volume * u.avg_unit_cost AS ingredient_cost
-FROM aperitivo_bar.aperitivo_cocktails c
-LEFT JOIN aperitivo_bar.ingredient_unit_costs_avg u
-  ON c.ingredient = u.product_name
-WHERE c.unit IN ('ml', 'g')
-  AND u.avg_unit_cost IS NOT NULL;
+  r.cocktail_name,
+  r.ingredient,
+  r.volume AS ingredient_quantity,
+  r.unit,
+  i.avg_unit_cost_net AS unit_cost,
+  r.volume * i.avg_unit_cost_net AS ingredient_cost
+
+FROM clean.recipes r
+
+LEFT JOIN clean.ingredient_cost_ref i
+  ON r.ingredient = i.product_name
+
+WHERE r.unit IN ('ml', 'g')
+  AND i.avg_unit_cost_net IS NOT NULL;
