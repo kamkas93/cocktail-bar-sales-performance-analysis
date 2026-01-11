@@ -69,6 +69,12 @@ No logical duplicates detected.
 - Confirmed date range limited to Q1 2025
 - Checked price ranges for business plausibility
 
+### Step 7: Tax normalization
+
+- Normalized VAT rates to decimal format (e.g. 0.23) instead of percentage integers.
+- Ensured the tax column is stored as a numeric value to support arithmetic operations in SQL.
+- This format enables straightforward net price, VAT amount, and margin calculations without additional transformations.
+
 ## Sales_Aperitivo – Data Cleaning Summary
 
 **Dataset:** sales_aperitivo_RAW  
@@ -82,6 +88,7 @@ No logical duplicates detected.
 - Identified and removed logical duplicates using composite row keys
 - Verified absence of NULL values after cleaning
 - Performed basic range validation on quantity and prices
+- Normalized VAT rates to decimal format
 
 ### Result:
 Dataset is consistent, normalized, and ready for transformation and aggregation.
