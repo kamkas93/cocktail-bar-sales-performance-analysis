@@ -78,11 +78,11 @@ No logical duplicates detected.
 ## Sales_Aperitivo – Data Cleaning Summary
 
 **Dataset:** sales_aperitivo_RAW  
-**Output:** sales_aperitivo_CLEAN  
+**Output:** sales_clean  
 
 ### Performed cleaning steps:
 - Standardized date format to ISO (YYYY-MM-DD)
-- Removed empty rows and blank values in `sale_date`
+- Removed empty rows and blank values in `sale_date`  
 - Normalized product names and categories (trimmed whitespace, unified casing)
 - Validated numeric fields (`quantity`, `product_price_gross`)
 - Identified and removed logical duplicates using composite row keys
@@ -152,7 +152,7 @@ all quantities into base units (grams or milliliters).
 No cost calculations or analytical metrics were derived at this stage.
 This step prepares the dataset for accurate cost analysis in later transformations.
 
-#### Step 4 Handling non-convertible units and missing cost data
+### Step 4 Handling non-convertible units and missing cost data
 
 Some warehouse products (e.g. foams, egg whites, vanilla pods, ice cubes, fresh preparations)
 are purchased in non-linear, count-based, or batch-based units that cannot be reliably
@@ -173,7 +173,13 @@ No cost imputation or estimation was applied at the cleaning stage.
 These items will be handled explicitly during later transformation or analysis phases,
 or excluded from unit-based beverage cost calculations where appropriate.
 
-### Step 5 – Duplicate validation and resolution
+### Step 5 - Tax
+
+- Normalized VAT rates to decimal format (e.g. 0.23) instead of percentage integers.
+- Ensured the tax column is stored as a numeric value to support arithmetic operations in SQL.
+- This format enables straightforward net price, VAT amount, and margin calculations without additional transformations.
+
+### Step 6 – Duplicate validation and resolution
 
 Invoice-level price discrepancy resolution
 
@@ -196,7 +202,7 @@ The original raw records were preserved unchanged for auditability.
 ### Warehouse_Products_Tasty_Town – Data Cleaning Summary
 
 **Dataset:** Warehouse_Products_Tasty_Town_2025_RAW
-**Output:** Warehouse_Products_Tasty_Town_2025_CLEAN
+**Output:** ingredients_clean
 
 ### Performed cleaning steps:
 
@@ -214,6 +220,7 @@ The original raw records were preserved unchanged for auditability.
   - `invoice_number + product_name + purchase_date`
 - Resolved invoice-level price discrepancies through business validation
 - Preserved raw datasets unchanged for auditability
+- Format tax column
 
 ### Result:
 
@@ -266,7 +273,7 @@ No duplicate recipe entries were identified.
 ### Aperitivo_Bar_Cocktails – Data Cleaning Summary
 
 **Dataset:** Aperitivo_Bar_Cocktails_2025_RAW  
-**Output:** Aperitivo_Bar_Cocktails_2025_CLEAN  
+**Output:** recipes_clean  
 
 ### Performed cleaning steps:
 
@@ -305,20 +312,24 @@ after cleaning and standardization.
 ## Aperitivo_Bar_Product_List – Data Cleaning Summary
 
 **Dataset:** Aperitivo_Bar_Product_List_2025_RAW  
-**Output:** Aperitivo_Bar_Product_List_2025_CLEAN  
+**Output:** products_clean  
 
 ### Performed cleaning steps:
+
 - Standardized column naming convention to `snake_case`
 - Normalized text-based fields (`name`, `product_category`, `supplier`)
-  - trimmed whitespace
+  - trimmed leading and trailing whitespace
   - unified uppercase formatting
 - Parsed and standardized product capacity
   - separated numeric value (`capacity_value`) and unit (`capacity_unit`)
   - normalized capacity units to milliliters where applicable
-- Cleaned net price field
-  - removed currency suffix
-  - normalized decimal separator
-  - converted values to numeric format (`net_price`)
+- Cleaned gross price field
+  - removed currency suffixes
+  - normalized decimal separators
+  - converted values to numeric format (`gross_price`)
+- Renamed VAT column
+  - renamed `tax` to `tax_rate`
+  - converted percentage values to numeric decimal format (e.g. `23%` → `0.23`)
 - Replaced blank and missing values with `NULL` for SQL-safe handling
 - Performed basic duplicate sanity checks
 - Preserved raw dataset unchanged for auditability
