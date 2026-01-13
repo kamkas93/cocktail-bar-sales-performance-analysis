@@ -12,19 +12,21 @@ management lacks a structured analytical view of product performance and beverag
 
 The analysis covers Q1 2025 (January–March) and focuses on sales-driven insights supported by reference product cost data.
 
-## Data structure
+## Data Structure
 
 - `data/raw/` – original raw datasets (unchanged, for auditability)
 - `data/clean/` – cleaned and standardized datasets used for SQL analysis
+- `data/transformed/` – analytical outputs (aggregated, business-ready views)
+
+## Project Structure
 
 ## Project Structure
 
 ```text
 data/
 ├── raw/                # Original source datasets (unchanged)
-└── clean/              # Cleaned and standardized datasets used for analysis
+├── clean/              # Cleaned and standardized datasets used for analysis
 └── transformed/        # Analytical outputs (aggregated, business-ready)
-
 
 sql/
 ├── 01_unit_costs       # Unit cost normalization (warehouse & product level)
@@ -35,6 +37,7 @@ sql/
 CLEANING_LOG.md         # Detailed documentation of all cleaning steps
 README.md               # Project overview and analytical narrative
 ```
+
 ## Data Source & Disclaimer
 
 The datasets used in this project are based on the author’s professional experience in food & beverage operations and are designed to closely resemble real-world sales and product cost data from a bar environment.
@@ -43,17 +46,10 @@ All data has been anonymized and modified for analytical purposes. Product names
 
 The datasets are intended solely for educational and portfolio demonstration purposes.
 
-### Assumptions & Simplifications
-
-For the purpose of this analysis, all prices and costs are treated as net values.
-Value Added Tax (VAT) and other indirect taxes were intentionally excluded
-to keep the analytical model focused on operational cost efficiency and
-pricing logic.
-
-Including taxes would require additional assumptions regarding tax rates,
-product categories, and accounting treatment at multiple stages
-(warehouse purchases, menu pricing, and sales reporting),
-which is outside the scope of this business intelligence case study.
+This project follows the Google Data Analytics framework:
+Ask (business problem definition), Prepare and Process (data cleaning in Google Sheets),
+Analyze (SQL-based modeling in BigQuery), Share (Tableau dashboard),
+and Act (data-driven recommendations).
 
 ## Business Task (ASK Phase)
 
@@ -64,7 +60,8 @@ The analysis aims to identify:
 - products with potentially inefficient cost-to-price ratios,
 - opportunities to optimize pricing, menu composition, and overall profitability.
 
-## Data Cleaning & Preparation (PREPARE Phase)
+## Data Cleaning & Preparation (PREPARE AND PROCESS Phase)
+
 The raw datasets required multiple cleaning and standardization steps before analysis. The cleaning process focused on improving data consistency, ensuring correct data types, and preparing the data for aggregation and joins.
 
 A detailed, step-by-step documentation of the entire data cleaning process — including validation checks, transformation logic, and business-driven data decisions — is provided in the CLEANING_LOG.md file to ensure transparency, reproducibility, and auditability of the analysis.
@@ -163,26 +160,90 @@ The resulting performance view supports identification of:
 
 ### Output & Visualization Readiness
 
-The final analytical layer is designed for direct consumption in BI tools such as **Tableau**, enabling further visualization, ranking, and dashboard development.
+## Data Visualization & Dashboarding (SHARE Phase)
 
-Cocktails without sales do not have selling price or margin calculated.
-This is intentional, as profitability metrics are based on realized transactions only.
+The final analytical dataset was visualized using **Tableau Public** to create an interactive, decision-oriented dashboard.
+
+The visualization layer was designed to support **managerial decision-making**, not just descriptive reporting.
+
+👉 **Interactive dashboard:**  
+https://public.tableau.com/views/CocktailPerformaneDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
+
+### Dashboard Objectives
+
+The Tableau dashboard focuses on answering the following business questions:
+
+- Which cocktails generate the highest total profit?
+- How does sales volume relate to net margin across menu items?
+- Are best-selling cocktails also the most profitable?
+- Which cocktails may require pricing or recipe optimization?
 
 ---
 
-## Key Insights & Outcomes
+### Visualization Design Decisions
 
-The analysis supports identification of:
+Several deliberate visualization and modeling decisions were made:
 
-- top-performing cocktails by revenue and profit contribution,
-- cocktails with disproportionately high beverage cost percentages,
-- pricing inconsistencies across similar recipes,
-- opportunities to optimize:
-  - menu pricing,
-  - recipe composition,
-  - product sourcing decisions.
+- **Scatter plot (Volume vs Net Margin)** was used to highlight trade-offs between sales scale and profitability.
+- **Bubble size** represents total net profit contribution.
+- **Margin-based segmentation** (High / Medium margin) supports quick identification of strong and weak performers.
+- **Average reference lines** provide contextual benchmarks for performance comparison.
 
-The results reflect common operational challenges faced by cocktail bars and demonstrate how data-driven analysis can support managerial decision-making.
+Cocktails with zero sales are intentionally excluded from margin averages to prevent distortion.
+They are retained in the data model but not emphasized in performance KPIs.
+
+---
+
+### KPI Design
+
+The dashboard includes executive-level KPIs:
+
+- Total Net Revenue
+- Total Net Profit
+- Average Net Margin (calculated on sold products only)
+- Best-Selling Cocktail (by units sold)
+
+KPIs are calculated exclusively on cocktails with realized sales to ensure analytical correctness and avoid bias caused by zero-sales items.
+
+---
+
+### Intended Use
+
+The dashboard is designed as a **menu engineering and pricing support tool**, enabling managers to:
+
+- identify profit drivers,
+- detect underperforming or mispriced cocktails,
+- balance high-margin items with high-volume sellers,
+- support data-driven menu and sourcing decisions.
+---
+
+## Actionable Insights & Recommendations (ACT Phase)
+
+Based on the SQL analysis and the Tableau performance dashboard, several actionable insights emerge:
+
+- **Profit contribution is not driven by margin alone.**  
+  Some cocktails with very high net margins generate limited total profit due to low sales volume, while others with moderate margins contribute disproportionately to total profit.
+
+- **Best-selling cocktails are not always the most profitable.**  
+  High-volume items should be continuously monitored, as even small cost or pricing inefficiencies can have a significant impact on total profit.
+
+- **Menu performance can be segmented into clear strategic groups.**  
+  The volume vs net margin analysis enables identification of:
+  - high-volume, high-margin “menu stars”,
+  - high-margin but low-volume items with growth potential,
+  - high-volume but lower-margin products requiring cost or pricing review.
+
+- **Cocktails without sales require separate managerial action.**  
+  Products with zero sales are excluded from profitability KPIs but remain visible in the data model, supporting decisions such as menu removal, repositioning, or recipe redesign.
+
+### Recommended Actions
+
+- Focus pricing and sourcing optimization efforts on **high-volume cocktails**, as they have the largest impact on total profit.
+- Evaluate high-margin, low-volume cocktails for **menu placement or promotion** opportunities.
+- Review recipes and ingredient sourcing for **lower-margin high-volume items** to improve contribution without reducing sales.
+- Consider removing or redesigning **non-selling menu items** to simplify the menu and reduce operational complexity.
+
+These insights demonstrate how combining bottom-up cost modeling with sales performance data enables data-driven menu and pricing decisions.
 
 ---
 
