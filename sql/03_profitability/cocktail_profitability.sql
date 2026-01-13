@@ -84,8 +84,5 @@ FROM clean.cocktail_beverage_costs b
 LEFT JOIN sales_per_cocktail s
   ON b.cocktail_name = s.product_name
 
--- Exclude cocktails without valid selling price
-WHERE s.selling_price_net IS NOT NULL
-
 -- Highlight cocktails with the worst cost structure first
 ORDER BY beverage_cost_pct DESC;
