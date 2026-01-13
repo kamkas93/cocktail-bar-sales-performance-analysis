@@ -165,6 +165,9 @@ The resulting performance view supports identification of:
 
 The final analytical layer is designed for direct consumption in BI tools such as **Tableau**, enabling further visualization, ranking, and dashboard development.
 
+Cocktails without sales do not have selling price or margin calculated.
+This is intentional, as profitability metrics are based on realized transactions only.
+
 ---
 
 ## Key Insights & Outcomes
