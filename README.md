@@ -23,6 +23,8 @@ The analysis covers Q1 2025 (January–March) and focuses on sales-driven insigh
 data/
 ├── raw/                # Original source datasets (unchanged)
 └── clean/              # Cleaned and standardized datasets used for analysis
+└── transformed/        # Analytical outputs (aggregated, business-ready)
+
 
 sql/
 ├── 01_unit_costs       # Unit cost normalization (warehouse & product level)
