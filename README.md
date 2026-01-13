@@ -19,17 +19,20 @@ The analysis covers Q1 2025 (January–March) and focuses on sales-driven insigh
 
 ## Project Structure
 
+```text
 data/
-  raw/        # Original source datasets (unchanged)
-  clean/      # Cleaned and standardized datasets used for analysis
-sql/
-  01_unit_costs        # Unit cost normalization (warehouse & product level)
-  02_costing           # Cocktail ingredient and beverage cost calculation
-  03_profitability     # Pricing and margin analysis
-  04_performance       # Sales × profitability performance metrics
-CLEANING_LOG.md # Detailed documentation of all cleaning steps
-README.md       # Project overview and analytical narrative
+├── raw/                # Original source datasets (unchanged)
+└── clean/              # Cleaned and standardized datasets used for analysis
 
+sql/
+├── 01_unit_costs       # Unit cost normalization (warehouse & product level)
+├── 02_costing          # Cocktail ingredient and beverage cost calculation
+├── 03_profitability    # Pricing and margin analysis
+└── 04_performance      # Sales × profitability performance metrics
+
+CLEANING_LOG.md         # Detailed documentation of all cleaning steps
+README.md               # Project overview and analytical narrative
+```
 ## Data Source & Disclaimer
 
 The datasets used in this project are based on the author’s professional experience in food & beverage operations and are designed to closely resemble real-world sales and product cost data from a bar environment.
@@ -72,109 +75,114 @@ The SQL analysis was structured into multiple logical layers using views, allowi
 
 ## SQL Analytical Model
 
-The analytical logic is organized into layered SQL views, reflecting a
-bottom-up cost and profitability model.
+The analytical logic is organized into clearly defined SQL layers, reflecting a **cost → profitability → performance** pipeline.
 
 ### Structure
 
+```
 sql/
-├── 01_unit_costs        # Unit cost normalization (warehouse & product level)
-├── 02_costing           # Cocktail ingredient and beverage cost calculation
-├── 03_profitability     # Pricing and margin analysis
-└── 04_performance       # Sales × profitability performance metrics
+  01_unit_costs        # Unit cost normalization (warehouse & product level)
+  02_costing           # Cocktail ingredient and beverage cost calculation
+  03_profitability     # Pricing and margin analysis
+  04_performance       # Sales × profitability performance metrics
+```
 
-Each SQL file contains detailed comments explaining:
-- business purpose
-- input tables
-- transformation logic
-- key assumptions
+Each SQL file contains inline documentation describing:
+- business purpose,
+- input and output tables,
+- transformation logic,
+- analytical assumptions.
+
+---
 
 ### Ingredient Unit Cost Modeling
 
-Warehouse purchase data was used to calculate standardized unit costs (per gram or milliliter) for all linear ingredients.
+Warehouse and product purchase data was used to calculate **standardized unit costs** (per gram or milliliter) for all measurable ingredients.
 
-To prevent cost distortion caused by multiple purchase prices for the same product, average unit costs per ingredient were calculated and used as the single source of truth for recipe-level cost attribution.
+Because the same product may appear multiple times with different purchase prices, **average unit costs** were calculated and used as a **reference cost per ingredient**.
 
-This ensured consistent and realistic cost modeling across all cocktails.
+This approach prevents cost distortion and ensures stable, realistic cost attribution at the recipe level.
+
+---
 
 ### Recipe-Level Ingredient Cost Attribution
 
-Cocktail recipe data was joined with standardized ingredient unit costs to calculate ingredient-level costs per cocktail.
+Cocktail recipe data was joined with reference ingredient unit costs to calculate **ingredient-level costs per cocktail**.
 
-Only linear, measurable ingredients (ml, g) were included in the cost calculation.
-Non-linear or operational components (e.g. ice, garnishes, foams) were excluded in line with real-world bar costing practices.
+Only linear, measurable units (ml, g) were included.  
+Non-measurable or operational components (e.g. ice, garnishes, foams) were excluded in line with standard bar costing practices.
 
-This step enabled full traceability from warehouse purchase prices down to individual cocktail ingredients.
+This step provides full transparency from warehouse purchase prices down to individual cocktail ingredients.
+
+---
 
 ### Cocktail-Level Beverage Cost Calculation
 
-Ingredient-level costs were aggregated to determine the total beverage cost per cocktail using a bottom-up approach.
+Ingredient-level costs were aggregated using a bottom-up approach to calculate the **total beverage cost per cocktail**.
 
-This resulted in a dedicated analytical view representing the true production cost of each cocktail.
+The resulting view represents the **net production cost** of each cocktail and serves as the cost foundation for all downstream profitability analysis.
+
+---
 
 ### Pricing & Profitability Analysis
 
-Cocktail selling prices (net values) were joined with calculated beverage costs to derive:
+Cocktail beverage costs were combined with **net selling prices** to calculate **net contribution margin metrics**, including:
 
-beverage cost per cocktail,
+- beverage cost per cocktail,
+- beverage cost percentage,
+- net margin (PLN),
+- net margin percentage.
 
-beverage cost percentage,
+All prices and costs are consistently treated as **net values**.  
+VAT is explicitly removed from selling prices to ensure correct margin calculations and analytical consistency.
 
-gross margin (PLN),
+This layer evaluates **pricing efficiency** and highlights cocktails with suboptimal cost-to-price ratios.
 
-gross margin percentage.
-
-All monetary values were treated as net values.
-Value Added Tax (VAT) and other indirect taxes were intentionally excluded to keep the analytical model focused on operational cost efficiency and pricing logic.
+---
 
 ### Sales Performance Integration
 
-Finally, cocktail-level profitability metrics were integrated with sales transaction data to evaluate:
+Finally, profitability metrics were integrated with **aggregated sales transaction data** to evaluate overall cocktail performance.
 
-units sold,
+Sales data was aggregated to cocktail level prior to joining to avoid row duplication caused by transactional granularity.
 
-total revenue,
+This layer enables analysis of:
+- units sold,
+- total net revenue,
+- total net profit contribution per cocktail.
 
-total gross profit per cocktail.
+The resulting performance view supports identification of:
+- top-performing cocktails by profit contribution,
+- high-margin but low-volume items,
+- high-volume but low-margin products,
+- menu and pricing optimization opportunities.
 
-This enabled identification of:
+---
 
-top-performing cocktails by profit contribution,
+### Output & Visualization Readiness
 
-high-margin but low-volume items,
+The final analytical layer is designed for direct consumption in BI tools such as **Tableau**, enabling further visualization, ranking, and dashboard development.
 
-high-volume but low-margin products,
-
-pricing and menu optimization opportunities.
-
-The resulting analytical layer serves as the foundation for further visualization and reporting in Tableau.
-
+---
 
 ## Key Insights & Outcomes
 
-- The analysis supports the identification of:
+The analysis supports identification of:
 
-- top-performing cocktails by revenue and volume,
-
+- top-performing cocktails by revenue and profit contribution,
 - cocktails with disproportionately high beverage cost percentages,
-
 - pricing inconsistencies across similar recipes,
-
 - opportunities to optimize:
-
   - menu pricing,
-
   - recipe composition,
-
   - product sourcing decisions.
 
 The results reflect common operational challenges faced by cocktail bars and demonstrate how data-driven analysis can support managerial decision-making.
 
+---
+
 ## Tools & Technologies
 
-  Google Sheets – data cleaning and validation
-
-  BigQuery – SQL-based data modeling and analysis
-
-  GitHub – version control, documentation, and portfolio presentation
-
+- **Google Sheets** – data cleaning and validation  
+- **Google BigQuery** – SQL-based data modeling and analysis  
+- **GitHub** – version control, documentation, and portfolio presentation
