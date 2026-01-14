@@ -252,3 +252,5 @@ These insights demonstrate how combining bottom-up cost modeling with sales perf
 - **Google Sheets** – data cleaning and validation  
 - **Google BigQuery** – SQL-based data modeling and analysis  
 - **GitHub** – version control, documentation, and portfolio presentation
+- **Tableau Public** – data visualisation & dashboard
+- **Generative AI (ChatGPT)** - support for SQL development, data transformations, metric definitions, and reproducible analytics documentation
