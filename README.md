@@ -1,6 +1,6 @@
 # Cocktail Bar Sales Performance Analysis
 
-Business intelligence case study analyzing sales and inventory data from multiple bars operating within a single food hall to support managerial decision-making.
+Business intelligence case study analyzing sales and inventory data from single cocktail bar operating within a food hall environment to support managerial decision-making.
 
 ## Scenario / Background
 
